@@ -1,0 +1,12 @@
+{
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "RAF": true,
+        "CAF": true
+    },
+    "rules": {
+      "no-bitwise": 0
+    }
+}

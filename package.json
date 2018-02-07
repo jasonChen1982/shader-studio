@@ -1,0 +1,35 @@
+{
+  "name": "shader-studio",
+  "version": "0.0.1",
+  "description": "shader studio, just for fun",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "fix": "eslint --fix ./demos",
+    "http": "hs -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonChen1982/shader-studio.git"
+  },
+  "keywords": [
+    "shader",
+    "glsl",
+    "tofu",
+    "three",
+    "three.js",
+    "tofu.js",
+    "threejs",
+    "tofujs"
+  ],
+  "author": "jasonChen1982",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonChen1982/shader-studio/issues"
+  },
+  "homepage": "https://github.com/jasonChen1982/shader-studio#readme",
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "http-server": "^0.11.1"
+  }
+}
