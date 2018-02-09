@@ -11,13 +11,13 @@ Take this opportunity to learn and consolidate glsl, hope i can become a shader 
 
 you can visit here [shader-studio]()
 
-or clone this repository and install pendencies.
+or clone this repository and install dependencies.
 
 ```sh
 npm i
 ```
 
-after it all try run http-server and go to `./demos` directory
+after it all, run http-server and go to `./demos` path.
 
 ```sh
 npm run http
