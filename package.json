@@ -31,5 +31,10 @@
   "devDependencies": {
     "eslint": "^4.17.0",
     "http-server": "^0.11.1"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.0",
+    "stats.js": "^0.17.0",
+    "three": "^0.89.0"
   }
 }

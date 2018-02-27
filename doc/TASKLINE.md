@@ -10,3 +10,4 @@ maybe this schedule is impossible to finish on time.
 - [ ] tofu.js pass gui component @02-20
 - [ ] shadertoy to find demo @02-21
 - [ ] zhihu draw light with c++ @02-22
+- [ ] learning c++ and develop a app @02-22
