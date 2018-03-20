@@ -1,0 +1,95 @@
+{
+  "_from": "three",
+  "_id": "three@0.89.0",
+  "_inBundle": false,
+  "_integrity": "sha1-RELYGaYWiHG40ss3rRKiQxDBcPU=",
+  "_location": "/three",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "three",
+    "name": "three",
+    "escapedName": "three",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/three/-/three-0.89.0.tgz",
+  "_shasum": "4442d819a6168871b8d2cb37ad12a24310c170f5",
+  "_spec": "three",
+  "_where": "/Users/jason82/Documents/web前端/github/my-repo/shader-studio",
+  "author": {
+    "name": "mrdoob"
+  },
+  "bugs": {
+    "url": "https://github.com/mrdoob/three.js/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "JavaScript 3D library",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "electron": "1.7.8",
+    "eslint": "^4.1.1",
+    "eslint-config-mdcs": "^4.2.2",
+    "google-closure-compiler": "^20170521.0.0",
+    "qunitjs": "^2.4.0",
+    "rollup": "^0.51.0",
+    "rollup-watch": "^4.0.0",
+    "serve": "^6.3.1",
+    "uglify-js": "^3.0.23"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
+  },
+  "eslintConfig": {
+    "extends": "mdcs"
+  },
+  "files": [
+    "package.json",
+    "bower.json",
+    "LICENSE",
+    "README.md",
+    "build/three.js",
+    "build/three.min.js",
+    "build/three.module.js",
+    "src",
+    "examples/js",
+    "examples/fonts"
+  ],
+  "homepage": "http://threejs.org/",
+  "jsnext:main": "build/three.module.js",
+  "keywords": [
+    "three",
+    "three.js",
+    "3d",
+    "webgl"
+  ],
+  "license": "MIT",
+  "main": "build/three.js",
+  "module": "build/three.module.js",
+  "name": "three",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrdoob/three.js.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build-closure": "rollup -c && java -jar node_modules/google-closure-compiler/compiler.jar --warning_level=VERBOSE --jscomp_off=globalThis --jscomp_off=checkTypes --externs utils/build/externs.js --language_in=ECMASCRIPT5_STRICT --js build/three.js --js_output_file build/three.min.js",
+    "build-test": "rollup -c test/rollup.unit.config.js -w",
+    "build-uglify": "rollup -c && uglifyjs build/three.js -cm --preamble \"// threejs.org/license\" > build/three.min.js",
+    "dev": "concurrently --names \"ROLLUP,HTTP\" -c \"bgBlue.bold,bgGreen.bold\" \"rollup -c -w -m inline\" \"serve --port 8080\"",
+    "editor": "electron ./editor/main.js",
+    "lint": "eslint src",
+    "start": "npm run dev",
+    "test": "qunit test/unit/three.source.unit.js"
+  },
+  "version": "0.89.0"
+}

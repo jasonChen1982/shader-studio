@@ -4,6 +4,7 @@
   "description": "shader studio, just for fun",
   "main": "index.js",
   "scripts": {
+    "extract": "npmsrcify extract",
     "lint": "eslint .",
     "fix": "eslint --fix ./demos",
     "http": "hs -o"
@@ -30,7 +31,18 @@
   "homepage": "https://github.com/jasonChen1982/shader-studio#readme",
   "devDependencies": {
     "eslint": "^4.17.0",
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "npmsrcify": "0.0.2"
+  },
+  "config": {
+    "npmsrcify": {
+      "modules": [
+        "dat.gui",
+        "stats.js",
+        "three"
+      ],
+      "output": "./lib"
+    }
   },
   "dependencies": {
     "dat.gui": "^0.7.0",
