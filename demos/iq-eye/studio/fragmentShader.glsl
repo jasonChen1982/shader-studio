@@ -1,4 +1,4 @@
-uniform vec3 iResolution;
+uniform vec2 iResolution;
 uniform float iTime;
 uniform float iTimeDelta;
 
