@@ -7,8 +7,13 @@ var xrViewer = new Tofu.XRViewer({
   height: height,
 });
 
-shader.uniforms.iResolution.value = new THREE.Vector2(width, height);
 var primer = new ShaderPrimer(shader);
+primer.pigmentMat.uniforms.iResolution.value = new THREE.Vector2(width, height);
+xrViewer.on('posttimeline', function(info) {
+  var iTimeDelta = info.snippet / 1000;
+  primer.pigmentMat.uniforms.iTime.value += iTimeDelta;
+  primer.pigmentMat.uniforms.iTimeDelta.value = iTimeDelta;
+});
 
 xrViewer.addPrimer(primer);
 
