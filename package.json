@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "extract": "npmsrcify extract",
+    "create": "ssc create",
+    "build": "ssc build",
     "lint": "eslint .",
     "fix": "eslint --fix ./demos",
     "http": "hs -o"
@@ -32,7 +34,8 @@
   "devDependencies": {
     "eslint": "^4.17.0",
     "http-server": "^0.11.1",
-    "npmsrcify": "0.0.2"
+    "npmsrcify": "0.0.2",
+    "shader-studio-cli": "^1.0.2"
   },
   "config": {
     "npmsrcify": {

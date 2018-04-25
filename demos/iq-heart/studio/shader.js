@@ -1,3 +1,5 @@
+import vertexShader from './vertexShader.glsl';
+import fragmentShader from './fragmentShader.glsl';
 var Vector2 = THREE.Vector2;
 
 var shader = {
@@ -14,8 +16,8 @@ var shader = {
     },
   },
 
-  vertexShader: '#include <vertexShader>;',
+  vertexShader: vertexShader,
 
-  fragmentShader: '#include <fragmentShader>;'
+  fragmentShader: fragmentShader
 
 };
