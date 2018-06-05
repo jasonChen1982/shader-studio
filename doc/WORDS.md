@@ -1,0 +1,9 @@
+- bilinear interpolation ： 双线性差值
+- lattice：格子
+- variations： 差异、差距
+- density：密度、浓度
+- compact：紧凑、小巧轻量
+- pseudo-random：伪随机
+- deterministic：确定的
+- intuitively：直观的
+- seamless：无缝的
