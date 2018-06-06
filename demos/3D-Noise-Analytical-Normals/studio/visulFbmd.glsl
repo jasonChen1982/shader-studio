@@ -197,7 +197,7 @@ void main() {
     float fre = clamp( 1.0+dot(rd,nor), 0.0, 1.0 );
     float fro = clamp( dot(nor,-rd), 0.0, 1.0 );
     col = mix( vec3(0.05,0.2,0.3), vec3(1.0,0.95,0.85), 0.5+0.5*nor.y );
-    // col = 0.5+0.5*nor;
+    //col = 0.5+0.5*nor;
     col += 10.0*pow(fro,12.0)*(0.04+0.96*pow(fre,5.0));
     col *= pow(vec3(occ),vec3(1.0,1.1,1.1) );
 	}
