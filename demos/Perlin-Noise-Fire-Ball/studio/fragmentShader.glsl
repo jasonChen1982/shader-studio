@@ -2,18 +2,6 @@ uniform vec2 iResolution;
 uniform float iTime;
 uniform float iTimeDelta;
 
-void main() {
-  // Normalized pixel coordinates (from 0 to 1)
-  vec2 uv = gl_FragCoord.xy / iResolution.xy;
-
-  // Time varying pixel color
-  vec3 col = 0.5 + 0.5 * cos(iTime + uv.xyx + vec3(0, 2, 4));
-
-  // Output to screen
-  gl_FragColor = vec4(col, 1.0);
-}
-
-
 float snoise(vec3 uv, float res) {
 	vec3 s = vec3(1e0, 1e2, 1e3);
 
@@ -37,11 +25,14 @@ float snoise(vec3 uv, float res) {
 	return mix(r0, r1, f.z)*2.-1.;
 }
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
-	vec2 p = -.5 + fragCoord.xy / iResolution.xy;
+void main() {
+	vec2 p = -.5 + gl_FragCoord.xy / iResolution.xy;
 	p.x *= iResolution.x/iResolution.y;
 
 	float color = 3.0 - (3.*length(2.*p));
+
+  // float z = fract(0.0001*iTime);
+  // float size = mix(5., 0., z);
 
 	vec3 coord = vec3(atan(p.x,p.y)/6.2832+.5, length(p)*.4, .5);
 
@@ -49,5 +40,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
 		float power = pow(2.0, float(i));
 		color += (1.5 / power) * snoise(coord + vec3(0.,-iTime*.05, iTime*.01), power*16.);
 	}
-	fragColor = vec4( color, pow(max(color,0.),2.)*0.4, pow(max(color,0.),3.)*0.15 , 1.0);
+	gl_FragColor = vec4( color, pow(max(color,0.),2.)*0.4, pow(max(color,0.),3.)*0.15 , 1.0);
 }
