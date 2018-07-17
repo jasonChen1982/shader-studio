@@ -30,10 +30,12 @@ void main() {
   // Time varying pixel color as a background color
   vec2 buv = gl_FragCoord.xy / iResolution.xy;
   vec3 bg = 0.5 + 0.5 * cos(iTime + buv.xyx + vec3(0, 2, 4));
+  bg = max(bg, vec3(0.4, 0, 0.4));
 
   // setting frontground color
   vec2 fuv = fract((uv - ep) / 0.7 + 0.5);
   vec3 front = 0.5 + 0.5 * cos(iTime + fuv.xyx + vec3(4, 0, 2));
+  front = max(front, vec3(0.4, 0, 0.4));
 
   // mix bg-front color
   vec3 col = mix(front, bg, m);
