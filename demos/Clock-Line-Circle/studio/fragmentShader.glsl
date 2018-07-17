@@ -68,10 +68,12 @@ vec3 plate(vec2 uv, vec3 color) {
   float mht = min(abs(1.-ht), ht);
 
   if (r > 0.58 && r < 0.6 && mst < 0.06) {
-    color = mix(vec3(0), color, mst);
+    float sd = smoothstep(0.06 - 0.03, 0.06, mst);
+    color = mix(vec3(0), color, sd);
   }
-  if (r > 0.55 && r < 0.6 && mht < 0.06) {
-    color = mix(vec3(0), color, mht);
+  if (r > 0.55 && r < 0.6 && mht < 0.1) {
+    float hd = smoothstep(0.1 - 0.03, 0.1, mst);
+    color = mix(vec3(0), color, hd);
   }
 
   return color;
