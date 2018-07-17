@@ -8,7 +8,7 @@ uniform float iSecond;
 
 #define cycle 1.5
 #define PI 3.1415926
-#define PI2 6.283185307179586
+#define PI2 6.2831853
 
 mat2 rotate(float deg) {
   return mat2(cos(deg), sin(deg), -sin(deg), cos(deg));
@@ -57,6 +57,23 @@ vec3 plate(vec2 uv, vec3 color) {
 
   color = mix(vec3(0.4039215, 0.8235294, 0.7843137), color, d1);
   color = mix(vec3(1), color, d2);
+
+  float r = length(uv);
+  float a = atan(uv.x, uv.y);
+  float ss = PI / 30.;
+  float hs = PI / 6.;
+  float st = fract(a / ss);
+  float mst = min(abs(1.-st), st);
+  float ht = fract(a / hs);
+  float mht = min(abs(1.-ht), ht);
+
+  if (r > 0.58 && r < 0.6 && mst < 0.06) {
+    color = mix(vec3(0), color, mst);
+  }
+  if (r > 0.55 && r < 0.6 && mht < 0.06) {
+    color = mix(vec3(0), color, mht);
+  }
+
   return color;
 }
 
