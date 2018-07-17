@@ -7,6 +7,8 @@ uniform float iMinute;
 uniform float iSecond;
 
 #define cycle 1.5
+#define scale .5
+#define bg vec3(0, 0.6627451, 0.6196078)
 #define PI 3.1415926
 #define PI2 6.2831853
 
@@ -79,20 +81,35 @@ vec3 plate(vec2 uv, vec3 color) {
   return color;
 }
 
+vec3 shadow(vec2 uv, vec3 color, vec2 c, vec2 d, float dist) {
+  d = normalize(d);
+  float l = dot(uv, d);
+  float w = length(uv - d * l);
+  float rate = l / dist;
+  if (w > 0.7 || rate <= 0. || rate >= 1.) return color;
+
+  vec3 pm = mix(color, vec3(0), 0.12);
+  color = mix(pm, color, rate);
+  return color;
+}
+
 void main() {
   // Normalized pixel coordinates (from 0 to 1)
-	vec2 uv = (2.0 * gl_FragCoord.xy - iResolution.xy) / min(iResolution.y, iResolution.x);
+  vec2 uv = (2.0 * gl_FragCoord.xy - iResolution.xy) / min(iResolution.y, iResolution.x);
+  uv /= scale;
 
   // animate
   float tt = mod(iTime, cycle) / cycle;
   float ss = 1.0 + 0.5 * sin(tt * PI * 6.0 + uv.y * 0.5) * exp(-tt * 4.0);
   uv *= vec2(0.7, 1.5) + ss * vec2(0.3, -0.5);
 
-  vec3 color = vec3(0, 0.6627451, 0.6196078);
+  // mix some color
+  vec3 color = bg;
   color = plate(uv, color);
   color = hourPointer(uv, color, iHour);
   color = minutePointer(uv, color, iMinute);
   color = secondPointer(uv, color, iSecond);
+  color = shadow(uv, color, vec2(0), vec2(1, -1), 1.4);
 
   // Output to screen
   gl_FragColor = vec4(color, 1.0);
