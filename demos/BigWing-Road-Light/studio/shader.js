@@ -8,6 +8,9 @@ var shader = {
     iResolution: {
       value: new Vector2(300, 150)
     },
+    iMouse: {
+      value: new Vector2(0, 0)
+    },
     iTime: {
       value: 0.0
     },

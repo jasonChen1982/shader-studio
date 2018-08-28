@@ -2,16 +2,6 @@ uniform vec2 iResolution;
 uniform float iTime;
 uniform float iTimeDelta;
 
-void main() {
-  // Normalized pixel coordinates (from 0 to 1)
-  vec2 uv = gl_FragCoord.xy / iResolution.xy;
-
-  // Time varying pixel color
-  vec3 col = 0.5 + 0.5 * cos(iTime + uv.xyx + vec3(0, 2, 4));
-
-  // Output to screen
-  gl_FragColor = vec4(col, 1.0);
-}
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -126,8 +116,8 @@ vec4 render( in vec3 ro, in vec3 rd, in ivec2 px ) {
   return vec4( col, 1.0 );
 }
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
-  vec2 p = (-iResolution.xy + 2.0*fragCoord.xy)/ iResolution.y;
+void main() {
+  vec2 p = (-iResolution.xy + 2.0*gl_FragCoord.xy)/ iResolution.y;
 
   vec2 m = iMouse.xy/iResolution.xy;
 
@@ -138,5 +128,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord ) {
   // ray
   vec3 rd = ca * normalize( vec3(p.xy,1.5));
 
-  fragColor = render( ro, rd, ivec2(fragCoord-0.5) );
+  gl_FragColor = render( ro, rd, ivec2(gl_FragCoord-0.5) );
 }

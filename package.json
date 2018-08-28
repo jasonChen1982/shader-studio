@@ -40,7 +40,7 @@
     "http-server": "^0.11.1",
     "husky": "^0.14.3",
     "npmsrcify": "0.0.2",
-    "shader-studio-cli": "^1.0.4",
+    "shader-studio-cli": "^1.1.0",
     "stats.js": "^0.17.0",
     "three": "^0.89.0",
     "tofu.js": "^0.6.3",

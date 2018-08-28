@@ -1,18 +1,7 @@
 uniform vec2 iResolution;
+uniform vec2 iMouse;
 uniform float iTime;
 uniform float iTimeDelta;
-
-void main() {
-  // Normalized pixel coordinates (from 0 to 1)
-  vec2 uv = gl_FragCoord.xy / iResolution.xy;
-
-  // Time varying pixel color
-  vec3 col = 0.5 + 0.5 * cos(iTime + uv.xyx + vec3(0, 2, 4));
-
-  // Output to screen
-  gl_FragColor = vec4(col, 1.0);
-}
-
 
 // "The Drive Home" by Martijn Steinrucken aka BigWings - 2017
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
@@ -302,88 +291,87 @@ vec3 StreetLights(float i, float t) {
 vec3 EnvironmentLights(float i, float t) {
 	float n = N(i+floor(t));
 
-    float side = sign(rd.x);
-    float offset = max(side, 0.)*(1./16.);
-    float z = fract(i-t+offset+fract(n*234.));
-    float n2 = fract(n*100.);
-    vec3 p = vec3((3.+n)*side, n2*n2*n2*1., z*60.);
-    float d = length(p-ro);
+  float side = sign(rd.x);
+  float offset = max(side, 0.)*(1./16.);
+  float z = fract(i-t+offset+fract(n*234.));
+  float n2 = fract(n*100.);
+  vec3 p = vec3((3.+n)*side, n2*n2*n2*1., z*60.);
+  float d = length(p-ro);
 	float blur = .1;
-    vec3 rp = ClosestPoint(ro, rd, p);
-    float distFade = Remap(1., .7, .1, 1.5, 1.-pow(1.-z,6.));
-    float m = BokehMask(ro, rd, p, .05*d, blur);
-    m *= distFade*distFade*.5;
+  vec3 rp = ClosestPoint(ro, rd, p);
+  float distFade = Remap(1., .7, .1, 1.5, 1.-pow(1.-z,6.));
+  float m = BokehMask(ro, rd, p, .05*d, blur);
+  m *= distFade*distFade*.5;
 
-    m *= 1.-pow(sin(z*6.28*20.*n)*.5+.5, 20.);
-    vec3 randomCol = vec3(fract(n*-34.5), fract(n*4572.), fract(n*1264.));
-    vec3 col = mix(tailLightCol, streetLightCol, fract(n*-65.42));
-    col = mix(col, randomCol, n);
-    return m*col*.2;
+  m *= 1.-pow(sin(z*6.28*20.*n)*.5+.5, 20.);
+  vec3 randomCol = vec3(fract(n*-34.5), fract(n*4572.), fract(n*1264.));
+  vec3 col = mix(tailLightCol, streetLightCol, fract(n*-65.42));
+  col = mix(col, randomCol, n);
+  return m*col*.2;
 }
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
-{
+void main() {
 	float t = iTime;
-    vec3 col = vec3(0.);
-    vec2 uv = fragCoord.xy / iResolution.xy; // 0 <> 1
+  vec3 col = vec3(0.);
+  vec2 uv = gl_FragCoord.xy / iResolution.xy; // 0 <> 1
 
-    uv -= .5;
-    uv.x *= iResolution.x/iResolution.y;
+  uv -= .5;
+  uv.x *= iResolution.x/iResolution.y;
 
-    vec2 mouse = iMouse.xy/iResolution.xy;
+  vec2 mouse = iMouse.xy/iResolution.xy;
 
-    vec3 pos = vec3(.3, .15, 0.);
+  vec3 pos = vec3(.3, .15, 0.);
 
-    float bt = t * 5.;
-    float h1 = N(floor(bt));
-    float h2 = N(floor(bt+1.));
-    float bumps = mix(h1, h2, fract(bt))*.1;
-    bumps = bumps*bumps*bumps*CAM_SHAKE;
+  float bt = t * 5.;
+  float h1 = N(floor(bt));
+  float h2 = N(floor(bt+1.));
+  float bumps = mix(h1, h2, fract(bt))*.1;
+  bumps = bumps*bumps*bumps*CAM_SHAKE;
 
-    pos.y += bumps;
-    float lookatY = pos.y+bumps;
-    vec3 lookat = vec3(0.3, lookatY, 1.);
-    vec3 lookat2 = vec3(0., lookatY, .7);
-    lookat = mix(lookat, lookat2, sin(t*.1)*.5+.5);
+  pos.y += bumps;
+  float lookatY = pos.y+bumps;
+  vec3 lookat = vec3(0.3, lookatY, 1.);
+  vec3 lookat2 = vec3(0., lookatY, .7);
+  lookat = mix(lookat, lookat2, sin(t*.1)*.5+.5);
 
-    uv.y += bumps*4.;
-    CameraSetup(uv, pos, lookat, 2., mouse.x);
+  uv.y += bumps*4.;
+  CameraSetup(uv, pos, lookat, 2., mouse.x);
 
-    t *= .03;
-    t += mouse.x;
+  t *= .03;
+  t += mouse.x;
 
-    // fix for GLES devices by MacroMachines
-    #ifdef GL_ES
+  // fix for GLES devices by MacroMachines
+  #ifdef GL_ES
 	const float stp = 1./8.;
 	#else
 	float stp = 1./8.
 	#endif
 
-    for(float i=0.; i<1.; i+=stp) {
-       col += StreetLights(i, t);
-    }
+  for(float i=0.; i<1.; i+=stp) {
+      col += StreetLights(i, t);
+  }
 
-    for(float i=0.; i<1.; i+=stp) {
-        float n = N(i+floor(t));
-    	col += HeadLights(i+n*stp*.7, t);
-    }
+  for(float i=0.; i<1.; i+=stp) {
+      float n = N(i+floor(t));
+    col += HeadLights(i+n*stp*.7, t);
+  }
 
-    #ifndef GL_ES
-    #ifdef HIGH_QUALITY
-    stp = 1./32.;
-    #else
-    stp = 1./16.;
-    #endif
-    #endif
+  #ifndef GL_ES
+  #ifdef HIGH_QUALITY
+  stp = 1./32.;
+  #else
+  stp = 1./16.;
+  #endif
+  #endif
 
-    for(float i=0.; i<1.; i+=stp) {
-       col += EnvironmentLights(i, t);
-    }
+  for(float i=0.; i<1.; i+=stp) {
+      col += EnvironmentLights(i, t);
+  }
 
-    col += TailLights(0., t);
-    col += TailLights(.5, t);
+  col += TailLights(0., t);
+  col += TailLights(.5, t);
 
-    col += sat(rd.y)*vec3(.6, .5, .9);
+  col += sat(rd.y)*vec3(.6, .5, .9);
 
-	fragColor = vec4(col, 0.);
+	gl_FragColor = vec4(col, 1.);
 }

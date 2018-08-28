@@ -66,9 +66,9 @@ vec4 noised( in vec3 x ) {
                           k3 + k6*u.x + k5*u.y + k7*u.x*u.y ) );
 }
 
-void mainImage( out vec4 fragColor, in vec2 fragCoord )
-{
-	vec2 p = (-iResolution.xy + 2.0*fragCoord.xy) / iResolution.y;
+void main() {
+  // Normalized pixel coordinates (from 0 to 1)
+	vec2 p = (2.0 * gl_FragCoord.xy - iResolution.xy) / min(iResolution.y, iResolution.x);
 
   // camera movement
 	float an = 0.5*iTime;
@@ -126,5 +126,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 		col = mix( col, vec3(0.9), 1.0-exp( -0.003*tmin*tmin ) );
 	}
 
-	fragColor = vec4( col, 1.0 );
+	gl_FragColor = vec4( col, 1.0 );
 }
