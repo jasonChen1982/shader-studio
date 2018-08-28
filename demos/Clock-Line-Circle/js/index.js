@@ -22,8 +22,10 @@ var xrViewer = new Tofu.XRViewer({
   height: height,
 });
 
-var primer = new ShaderPrimer(shader);
-primer.pigmentMat.uniforms.iResolution.value = new THREE.Vector2(width, height);
+var primerLayer = xrViewer.createLayer(Tofu.PrimerLayer);
+
+var shaderPrimer = new Tofu.ShaderPrimer(shader);
+shaderPrimer.material.uniforms.iResolution.value = new THREE.Vector2(width, height);
 xrViewer.on('posttimeline', function(info) {
   var iTimeDelta = info.snippet / 1000;
   primer.pigmentMat.uniforms.iTime.value += iTimeDelta;
@@ -35,7 +37,6 @@ xrViewer.on('posttimeline', function(info) {
   primer.pigmentMat.uniforms.iSecond.value = nt.second;
 });
 
-xrViewer.addPrimer(primer);
+primerLayer.add(shaderPrimer);
 
 xrViewer.start();
-

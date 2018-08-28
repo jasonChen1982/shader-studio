@@ -1,36 +1,38 @@
 {
-  "_from": "three",
+  "_args": [
+    [
+      "three@0.89.0",
+      "/Users/jason82/Documents/webfrontend/github/my-repo/shader-studio"
+    ]
+  ],
+  "_from": "three@0.89.0",
   "_id": "three@0.89.0",
   "_inBundle": false,
   "_integrity": "sha1-RELYGaYWiHG40ss3rRKiQxDBcPU=",
   "_location": "/three",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "three",
+    "raw": "three@0.89.0",
     "name": "three",
     "escapedName": "three",
-    "rawSpec": "",
+    "rawSpec": "0.89.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "0.89.0"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/three/-/three-0.89.0.tgz",
-  "_shasum": "4442d819a6168871b8d2cb37ad12a24310c170f5",
-  "_spec": "three",
-  "_where": "/Users/jason82/Documents/web前端/github/my-repo/shader-studio",
+  "_spec": "0.89.0",
+  "_where": "/Users/jason82/Documents/webfrontend/github/my-repo/shader-studio",
   "author": {
     "name": "mrdoob"
   },
   "bugs": {
     "url": "https://github.com/mrdoob/three.js/issues"
   },
-  "bundleDependencies": false,
-  "deprecated": false,
   "description": "JavaScript 3D library",
   "devDependencies": {
     "concurrently": "^3.5.0",

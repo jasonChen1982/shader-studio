@@ -1,36 +1,38 @@
 {
-  "_from": "stats.js",
+  "_args": [
+    [
+      "stats.js@0.17.0",
+      "/Users/jason82/Documents/webfrontend/github/my-repo/shader-studio"
+    ]
+  ],
+  "_from": "stats.js@0.17.0",
   "_id": "stats.js@0.17.0",
   "_inBundle": false,
   "_integrity": "sha1-scPcRtlEmLV4t/05hbgaznExzH0=",
   "_location": "/stats.js",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "stats.js",
+    "raw": "stats.js@0.17.0",
     "name": "stats.js",
     "escapedName": "stats.js",
-    "rawSpec": "",
+    "rawSpec": "0.17.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "0.17.0"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/stats.js/-/stats.js-0.17.0.tgz",
-  "_shasum": "b1c3dc46d94498b578b7fd3985b81ace7131cc7d",
-  "_spec": "stats.js",
-  "_where": "/Users/jason82/Documents/web前端/github/my-repo/shader-studio",
+  "_spec": "0.17.0",
+  "_where": "/Users/jason82/Documents/webfrontend/github/my-repo/shader-studio",
   "author": {
     "name": "mrdoob"
   },
   "bugs": {
     "url": "https://github.com/mrdoob/stats.js/issues"
   },
-  "bundleDependencies": false,
-  "deprecated": false,
   "description": "JavaScript Performance Monitor",
   "devDependencies": {
     "rollup": "^0.36.0",

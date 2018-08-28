@@ -1,36 +1,38 @@
 {
-  "_from": "dat.gui",
+  "_args": [
+    [
+      "dat.gui@0.7.0",
+      "/Users/jason82/Documents/webfrontend/github/my-repo/shader-studio"
+    ]
+  ],
+  "_from": "dat.gui@0.7.0",
   "_id": "dat.gui@0.7.0",
   "_inBundle": false,
   "_integrity": "sha512-4jTYGM0SnTDp7v+Bgq8b9B1HEADnfLWIBjYgbRlxv5pCdugW2bBYeDXdj4MYlD/eDY41LP6hHQHIvFQ3Kl378g==",
   "_location": "/dat.gui",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "dat.gui",
+    "raw": "dat.gui@0.7.0",
     "name": "dat.gui",
     "escapedName": "dat.gui",
-    "rawSpec": "",
+    "rawSpec": "0.7.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "0.7.0"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/dat.gui/-/dat.gui-0.7.0.tgz",
-  "_shasum": "877d9a1a1fb75e4963864d7d36e4ff122776fb64",
-  "_spec": "dat.gui",
-  "_where": "/Users/jason82/Documents/web前端/github/my-repo/shader-studio",
+  "_spec": "0.7.0",
+  "_where": "/Users/jason82/Documents/webfrontend/github/my-repo/shader-studio",
   "author": {
     "name": "Data Arts Team, Google"
   },
   "bugs": {
     "url": "https://github.com/dataarts/dat.gui/issues"
   },
-  "bundleDependencies": false,
-  "deprecated": false,
   "description": "A lightweight graphical user interface for changing variables in JavaScript.",
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -9,6 +9,7 @@
     "build": "ssc build",
     "lint": "eslint .",
     "fix": "eslint --fix ./demos",
+    "commitmsg": "commitlint -E GIT_PARAMS",
     "http": "hs -o"
   },
   "repository": {
@@ -32,24 +33,29 @@
   },
   "homepage": "https://github.com/jasonChen1982/shader-studio#readme",
   "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "dat.gui": "^0.7.0",
     "eslint": "^4.17.0",
     "http-server": "^0.11.1",
+    "husky": "^0.14.3",
     "npmsrcify": "0.0.2",
-    "shader-studio-cli": "^1.0.4"
+    "shader-studio-cli": "^1.0.4",
+    "stats.js": "^0.17.0",
+    "three": "^0.89.0",
+    "tofu.js": "^0.6.3",
+    "tofu.shaderprimer": "0.0.1"
   },
   "config": {
     "npmsrcify": {
       "modules": [
         "dat.gui",
         "stats.js",
+        "tofu.js",
+        "tofu.shaderprimer",
         "three"
       ],
       "output": "./lib"
     }
-  },
-  "dependencies": {
-    "dat.gui": "^0.7.0",
-    "stats.js": "^0.17.0",
-    "three": "^0.89.0"
   }
 }

@@ -1,0 +1,103 @@
+{
+  "_from": "tofu.shaderprimer",
+  "_id": "tofu.shaderprimer@0.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-UeTIXeFKu65jLJw6FE1YRdm4haOKFaXNiBYh3LJGaN+FKFOqxbO8kQqNp8xNR+G9EYur4ojX7kLSinqepKoYYQ==",
+  "_location": "/tofu.shaderprimer",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "tofu.shaderprimer",
+    "name": "tofu.shaderprimer",
+    "escapedName": "tofu.shaderprimer",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/tofu.shaderprimer/-/tofu.shaderprimer-0.0.1.tgz",
+  "_shasum": "fad213fc83cc29f41dd5e95828f6f9d76ada7e26",
+  "_spec": "tofu.shaderprimer",
+  "_where": "/Users/jason82/Documents/webfrontend/github/my-repo/shader-studio",
+  "author": {
+    "name": "jasonChen1982"
+  },
+  "bugs": {
+    "url": "https://github.com/jasonChen1982/tofu.shaderprimer/issues"
+  },
+  "bundleDependencies": false,
+  "config": {
+    "npmsrcify": {
+      "modules": [
+        "tofu.js",
+        "three"
+      ],
+      "output": "./examples/lib"
+    }
+  },
+  "deprecated": false,
+  "description": "tofu.shaderprimer — shader primer class =============",
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-egg": "^5.1.1",
+    "http-server": "^0.10.0",
+    "husky": "^0.14.3",
+    "npmsrcify": "0.0.2",
+    "rollup": "^0.52.3",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-watch": "^4.3.1",
+    "standard-version": "^4.4.0",
+    "three": "^0.92.0",
+    "tofu.js": "^0.6.2"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "README.md",
+    "build",
+    "src"
+  ],
+  "homepage": "https://github.com/jasonChen1982/tofu.shaderprimer#readme",
+  "keywords": [
+    "uc-ar",
+    "tofu",
+    "three",
+    "3d"
+  ],
+  "license": "MIT",
+  "main": "./build/index.js",
+  "name": "tofu.shaderprimer",
+  "peerDependencies": {
+    "three": "^0.89.0",
+    "tofu.js": "^0.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonChen1982/tofu.shaderprimer.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:dev": "rollup -c -w",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "docs": "jsdoc -c jsdoc.conf.json -R README.md",
+    "extract": "npmsrcify extract",
+    "fix": "eslint --fix ./src",
+    "http": "hs -o",
+    "lint": "eslint .",
+    "postver": "git push --follow-tags origin master && npm publish",
+    "precommit": "npm run lint",
+    "prever": "npm run build && npm run extract && git add -A && git commit -m 'release: release a new version'",
+    "test": "karma start",
+    "ver": "standard-version -m 'chore(release): v%s'"
+  },
+  "version": "0.0.1"
+}

@@ -1,0 +1,132 @@
+{
+  "_from": "tofu.js@^0.6.3",
+  "_id": "tofu.js@0.6.3",
+  "_inBundle": false,
+  "_integrity": "sha512-5qEEH3LzCoKobE/FSttiDxRgC/cWiMxCa2mVjxyGcLeCNhUPFGD6r5f2TPjdjvwJb7A4yJA3/3ZkTJ8FAzaRXw==",
+  "_location": "/tofu.js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "tofu.js@^0.6.3",
+    "name": "tofu.js",
+    "escapedName": "tofu.js",
+    "rawSpec": "^0.6.3",
+    "saveSpec": null,
+    "fetchSpec": "^0.6.3"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/tofu.js/-/tofu.js-0.6.3.tgz",
+  "_shasum": "834923e1413bec5a324f19b4a8339d4dee5dfdeb",
+  "_spec": "tofu.js@^0.6.3",
+  "_where": "/Users/jason82/Documents/webfrontend/github/my-repo/shader-studio",
+  "author": {
+    "name": "jasonChen1982"
+  },
+  "bundleDependencies": false,
+  "config": {
+    "npmsrcify": {
+      "modules": [
+        "dat.gui",
+        "stats.js",
+        "three"
+      ],
+      "output": "./examples/lib"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "release",
+        "revert",
+        "deps"
+      ]
+    }
+  },
+  "dependencies": {
+    "three.interaction": "0.1.0"
+  },
+  "deprecated": false,
+  "description": "a helper three.js library for building UC-AR",
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "@pixi/jsdoc-template": "^2.2.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "chalk": "^2.3.0",
+    "dat.gui": "^0.7.1",
+    "eslint": "^4.19.1",
+    "eslint-config-egg": "^5.1.1",
+    "http-server": "^0.10.0",
+    "husky": "^0.14.3",
+    "jsdoc": "^3.5.5",
+    "karma": "^1.7.1",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "mocha": "^4.0.1",
+    "npmsrcify": "0.0.2",
+    "rollup": "^0.52.3",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-watch": "^4.3.1",
+    "standard-version": "^4.4.0",
+    "stats.js": "^0.17.0",
+    "three": "^0.92.0",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "README.md",
+    "build",
+    "esm",
+    "src"
+  ],
+  "keywords": [
+    "uc-ar",
+    "tofu",
+    "three",
+    "3d"
+  ],
+  "license": "MIT",
+  "main": "./build/tofu.js",
+  "module": "./esm/index.js",
+  "name": "tofu.js",
+  "peerDependencies": {
+    "three": "^0.89.0"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:dev": "rollup -c -w",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "docs": "jsdoc -c jsdoc.conf.json -R README.md",
+    "extract": "npmsrcify extract",
+    "fix": "eslint --fix ./src",
+    "http": "hs -o",
+    "lint": "eslint .",
+    "postver": "git push --follow-tags origin master && npm publish",
+    "precommit": "npm run lint",
+    "prever": "npm run build && npm run extract && git add -A && git commit -m 'release: release a new version'",
+    "test": "karma start",
+    "ver": "standard-version -m 'chore(release): v%s'"
+  },
+  "version": "0.6.3"
+}
