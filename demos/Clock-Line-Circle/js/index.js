@@ -16,7 +16,7 @@ function calculateClock() {
   };
 }
 
-var xrViewer = new Tofu.XRViewer({
+var xrViewer = new Tofu.Viewer({
   canvas: '#shader-studio',
   width: width,
   height: height,
@@ -28,13 +28,13 @@ var shaderPrimer = new Tofu.ShaderPrimer(shader);
 shaderPrimer.material.uniforms.iResolution.value = new THREE.Vector2(width, height);
 xrViewer.on('posttimeline', function(info) {
   var iTimeDelta = info.snippet / 1000;
-  primer.pigmentMat.uniforms.iTime.value += iTimeDelta;
-  primer.pigmentMat.uniforms.iTimeDelta.value = iTimeDelta;
+  shaderPrimer.material.uniforms.iTime.value += iTimeDelta;
+  shaderPrimer.material.uniforms.iTimeDelta.value = iTimeDelta;
 
   var nt = calculateClock();
-  primer.pigmentMat.uniforms.iHour.value = nt.hour;
-  primer.pigmentMat.uniforms.iMinute.value = nt.minute;
-  primer.pigmentMat.uniforms.iSecond.value = nt.second;
+  shaderPrimer.material.uniforms.iHour.value = nt.hour;
+  shaderPrimer.material.uniforms.iMinute.value = nt.minute;
+  shaderPrimer.material.uniforms.iSecond.value = nt.second;
 });
 
 primerLayer.add(shaderPrimer);
