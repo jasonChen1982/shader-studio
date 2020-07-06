@@ -27,6 +27,11 @@ vec2 hash( in vec2 x ) {
 }
 
 
+mat2 rotate(float deg) {
+  return mat2(cos(deg), sin(deg), -sin(deg), cos(deg));
+}
+
+
 // return gradient noise (in x) and its derivatives (in yz)
 vec3 noised( in vec2 p ) {
   vec2 i = floor( p );
@@ -59,6 +64,7 @@ vec3 noised( in vec2 p ) {
 void main() {
   // Normalized pixel coordinates (from 0 to 1)
 	vec2 p = (2.0 * gl_FragCoord.xy - iResolution.xy) / min(iResolution.y, iResolution.x);
+  p = p * rotate( iTime/41.0*6.2831853 );
 
   vec3 n = noised(8.0 * p);
 
