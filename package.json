@@ -42,7 +42,7 @@
     "npmsrcify": "0.0.2",
     "shader-studio-cli": "^1.1.0",
     "stats.js": "^0.17.0",
-    "three": "^0.89.0",
+    "three": "^0.125.0",
     "tofu.js": "^0.6.3",
     "tofu.shaderprimer": "0.0.1"
   },
