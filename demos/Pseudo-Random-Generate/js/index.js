@@ -6,7 +6,7 @@ var xrViewer = new Tofu.Viewer({
   width: width,
   height: height,
 });
-xrViewer.renderer.setPixelRatio(window.devicePixelRatio)
+xrViewer.renderer.setPixelRatio(window.devicePixelRatio);
 
 var primerLayer = xrViewer.createLayer(Tofu.PrimerLayer);
 
