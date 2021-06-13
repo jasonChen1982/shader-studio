@@ -36,7 +36,7 @@
   "description": "JavaScript 3D library",
   "devDependencies": {
     "concurrently": "^3.5.0",
-    "electron": "1.7.8",
+    "electron": "9.1.0",
     "eslint": "^4.1.1",
     "eslint-config-mdcs": "^4.2.2",
     "google-closure-compiler": "^20170521.0.0",
