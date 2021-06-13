@@ -4,7 +4,7 @@ uniform float iTimeDelta;
 
 // makes a pseudorandom number between 0 and 1
 float hash(float n) {
-  return fract(sin(n)*93942.234);
+  return fract(sin(n));
 }
 
 // smoothsteps a grid of random numbers at the integers
@@ -25,6 +25,26 @@ float noise(vec2 p) {
     mix(c, d, k.x),
     k.y);
 }
+
+
+// float hash(vec2 p)  // replace this by something better
+// {
+//     p  = 5.0*fract( p*0.3183099 + vec2(0.71,0.113));
+//     return fract( p.x*p.y*(p.x+p.y) );
+// }
+
+// float noise( in vec2 p )
+// {
+//     vec2 i = floor( p );
+//     vec2 f = fract( p );
+
+// 	vec2 u = f*f*(3.0-2.0*f);
+
+//     return mix( mix( hash( i + vec2(0.0,0.0) ),
+//                      hash( i + vec2(1.0,0.0) ), u.x),
+//                 mix( hash( i + vec2(0.0,1.0) ),
+//                      hash( i + vec2(1.0,1.0) ), u.x), u.y);
+// }
 
 // rotation matrix
 mat2 m = mat2(0.6,0.8,-0.8,0.6);

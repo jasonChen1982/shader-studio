@@ -34,7 +34,7 @@ float perlinNoise(vec2 p) {
 }
 
 float hash(float n) {
-  return fract(sin(n)*93942.234);
+  return fract(sin(n)*48.1);
 }
 
 float valueNoise(vec2 p) {
