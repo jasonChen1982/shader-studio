@@ -22,12 +22,88 @@
       height: auto;
     }
 
+    .recruit-info {
+      position: absolute;
+      bottom: 60px;
+      right: 200px;
+      width: 100px;
+      height: 60px;
+    }
+
+    .recruit-info span {
+      position: absolute;
+      width: 100px;
+      height: 40px;
+      bottom: 0;
+      border-radius: 20px;
+      background-color: #fff;
+      text-align: center;
+      line-height: 40px;
+      color: rgb(255, 128, 124);
+      font-weight: bold;
+      animation: breath 1s ease-in-out alternate infinite;
+      box-shadow: 2px 1px 3px 1px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .recruit-info:hover .info-blank {
+      display: block;
+    }
+
+    .info-blank {
+      position: absolute;
+      left: 50%;
+      bottom: 50px;
+      width: 300px;
+      padding: 10px 0;
+      margin-left: -150px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 2px 1px 3px 1px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      line-height: 40px;
+      display: none;
+      animation: fadeIn 0.4s;
+    }
+
+    .wechat-qrcode {
+      display: block;
+      width: 270px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    @keyframes breath {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translate(0, 20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
   </style>
 </head>
 
 <body>
   <canvas id="shader-studio"></canvas>
-
+  <div class="recruit-info">
+    <span>联系我</span>
+    <div class="info-blank">
+      <img class="wechat-qrcode" src="./images/wechat.jpg"/>
+      <p>扫码加微信</p>
+    </div>
+  </div>
   <script src="../../lib/three/build/three.js"></script>
   <script src="../../lib/stats.js/build/stats.min.js"></script>
   <script src="../../lib/tofu.js/build/tofu.js"></script>
