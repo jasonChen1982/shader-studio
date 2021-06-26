@@ -44,6 +44,7 @@
       animation: breath 1s ease-in-out alternate infinite;
       box-shadow: 2px 1px 3px 1px rgba(0, 0, 0, 0.3);
       cursor: pointer;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     }
 
     .recruit-info:hover .info-blank {
@@ -73,6 +74,18 @@
       margin: 0 auto;
     }
 
+    .bottom-text {
+      position: absolute;
+      left: 50%;
+      bottom: 60px;
+      font-size: 40px;
+      font-weight: bold;
+      line-height: 40px;
+      color: #fff;
+      transform: translate(-50%, 0);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
     @keyframes breath {
       0% {
         transform: scale(1);
@@ -98,12 +111,13 @@
 <body>
   <canvas id="shader-studio"></canvas>
   <div class="recruit-info">
-    <span>联系我</span>
+    <span>加微信联系</span>
     <div class="info-blank">
       <img class="wechat-qrcode" src="./images/wechat.jpg"/>
       <p>扫码加微信</p>
     </div>
   </div>
+  <p class="bottom-text">广州 阿里-UC/夸克 招人</p>
   <script src="../../lib/three/build/three.js"></script>
   <script src="../../lib/stats.js/build/stats.min.js"></script>
   <script src="../../lib/tofu.js/build/tofu.js"></script>
