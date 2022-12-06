@@ -37,7 +37,7 @@
     "@commitlint/config-conventional": "^7.0.1",
     "dat.gui": "^0.7.0",
     "eslint": "^4.17.0",
-    "http-server": "^0.11.1",
+    "http-server": "^0.11.2",
     "husky": "^0.14.3",
     "npmsrcify": "0.0.2",
     "shader-studio-cli": "^1.1.0",
